@@ -1,0 +1,47 @@
+body {
+  font-family: 'Comic Neue', cursive;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.article-card {
+  background-color: white;
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 20px;
+  width: 60%;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.date {
+  color: #8b8b8b;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.content {
+  color: #222;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: justify;
+}
+.title {
+  text-decoration: none; /* Bỏ gạch chân */
+  color: #333; /* Tùy chọn: chỉnh màu chữ */
+}
+
+.title:hover {
+  text-decoration: underline; /* Nếu muốn có gạch chân khi hover */
+  color: #000; /* Đậm hơn khi rê chuột */
+}

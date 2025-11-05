@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Article</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Comic Neue', sans-serif;
+            background: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .delete-container {
+            width: 400px;
+            background: white;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 8px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            margin: 0 8px;
+        }
+
+        .btn-delete {
+            background: #e63946;
+            color: white;
+        }
+
+        .btn-cancel {
+            background: #ccc;
+            color: #111;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="delete-container">
+        <h1>Delete Article</h1>
+        <p id="article-info">Loading article information...</p>
+        <button class="btn btn-delete" id="delete-btn">Delete</button>
+        <button class="btn btn-cancel" id="cancel-btn">Cancel</button>
+    </div>
+
+    <script>
+        // Lấy id từ URL (/delete/:id)
+        const id = window.location.pathname.split('/').pop();
+
+        const info = document.getElementById('article-info');
+        const deleteBtn = document.getElementById('delete-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+
+        // Gọi API để lấy thông tin bài viết
+        fetch(`/api/article/${id}`)
+            .then(res => res.json())
+            .then(result => {
+                if (result.success && result.data) {
+                    info.textContent = `Are you sure you want to delete the article "${result.data.title}"?`;
+                } else {
+                    info.textContent = "Article not found!";
+                    deleteBtn.disabled = true;
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                info.textContent = "Error loading article information.";
+                deleteBtn.disabled = true;
+            });
+
+        // Khi bấm Delete
+        deleteBtn.addEventListener('click', async () => {
+            try {
+                const res = await fetch(`/delete/${id}`, { method: 'DELETE' });
+                const result = await res.json();
+                if (result.success) {
+                    alert('Article deleted successfully!');
+                    window.location.href = '/admin';
+                } else {
+                    alert(result.message || 'Failed to delete.');
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Error deleting article.');
+            }
+        });
+
+        // Khi bấm Cancel
+        cancelBtn.addEventListener('click', () => {
+            window.location.href = '/admin';
+        });
+    </script>
+</body>
+
+</html>

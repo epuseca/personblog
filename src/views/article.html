@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article</title>
+    <link rel="stylesheet" href="/css/article.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="article-card">
+        <h2 class="title" id="title">My first article</h2>
+        <p class="date" id="date">August 7, 2024</p>
+        <p class="content" id="content">
+            Your title isn't loaded, pls check your id's article
+        </p>
+    </div>
+
+    <script>
+        // Nếu bạn muốn load dữ liệu động từ API
+        const id = window.location.pathname.split('/').pop();
+        fetch(`/api/article/${id}`)
+            .then(res => res.json())
+            .then(article => {
+                if (article && article.data) {
+                    document.getElementById('title').textContent = article.data.title;
+                    document.getElementById('date').textContent = article.data.date;
+                    document.getElementById('content').textContent = article.data.content;
+                } else {
+                    document.getElementById('title').textContent = 'No title';
+                    console.error('Không tìm thấy bài viết hoặc dữ liệu trống');
+                }
+            })
+            .catch(err => console.error('Error loading article:', err));
+    </script>
+</body>
+
+</html>

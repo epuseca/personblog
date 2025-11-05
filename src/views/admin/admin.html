@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Blog</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="blog-container">
+        <div class="blog-title">
+            <h1>Personal Blog</h1>
+            <a href="/new">+ Add</a>
+        </div>
+        <ul id="article-list">
+            <!-- Danh sách bài viết sẽ được render ở đây -->
+        </ul>
+    </div>
+
+    <script>
+        // Gọi API lấy danh sách bài viết
+        fetch('/all-article')
+            .then(res => res.json())
+            .then(result => {
+                if (result.success && Array.isArray(result.data)) {
+                    const ul = document.getElementById('article-list');
+                    ul.innerHTML = ''; // Xóa dữ liệu cũ
+
+                    result.data.forEach(article => {
+                        const li = document.createElement('li');
+
+                        const title = document.createElement('a');
+                        title.textContent = article.title;
+                        title.href = `/article/${article.id}`;
+                        title.classList.add('title');
+
+                        const actions = document.createElement('div');
+                        actions.classList.add('actions');
+
+                        const edit = document.createElement('a');
+                        edit.textContent = 'Edit';
+                        edit.href = `/edit/${article.id}`;
+                        edit.classList.add('edit');
+
+                        const deleteArticle = document.createElement('a');
+                        deleteArticle.textContent = 'Delete';
+                        deleteArticle.href = `/delete/${article.id}`;
+                        deleteArticle.classList.add('delete');
+
+                        actions.appendChild(edit);
+                        actions.appendChild(deleteArticle);
+
+                        li.appendChild(title);
+                        li.appendChild(actions);
+                        ul.appendChild(li);
+                    });
+                } else {
+                    console.error('Không có dữ liệu bài viết.');
+                }
+            })
+            .catch(err => console.error('Lỗi tải dữ liệu:', err));
+    </script>
+
+</body>
+
+</html>

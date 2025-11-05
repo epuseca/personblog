@@ -1,0 +1,61 @@
+ body {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.blog-container {
+    background: white;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 10px 30px;
+    width: 60%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 16px;
+}
+
+li span.date {
+    color: #999;
+    font-size: 15px;
+}
+.actions {
+    display: flex;
+    gap: 15px; /* Khoảng cách giữa Edit và Delete */
+}
+
+
+.title,a {
+  text-decoration: none; /* Bỏ gạch chân */
+  color: #333; /* Tùy chọn: chỉnh màu chữ */
+}
+
+.title:hover {
+  text-decoration: underline; /* Nếu muốn có gạch chân khi hover */
+  color: #000; /* Đậm hơn khi rê chuột */
+}
+.blog-title{
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}

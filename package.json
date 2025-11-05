@@ -1,0 +1,23 @@
+{
+  "name": "personal-blog",
+  "version": "1.0.0",
+  "description": "Simple personal blog",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon ./src/server.js",
+    "start": "nodemon ./src/server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "personal blog"
+  ],
+  "author": "GiaLoc",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

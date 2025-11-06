@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1762417734822",
+    "name": "admin",
+    "password": "$2b$10$CjHZy0whieztiejv76sZS.7A61zRYd1S4RFaWDPbBVWDeX8OqmvTu",
+    "role": "admin"
+  },
+  {
+    "id": "1762418803800",
+    "name": "admin",
+    "password": "$2b$10$rNNfY3Q7TdO/NOkwVqabbeMNxP80G3TAXit.SFZhS/fpiwb0BAb8K",
+    "role": "admin"
+  }
+]

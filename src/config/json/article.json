@@ -3,13 +3,13 @@
     "id": "1762312974580",
     "title": "Welcome to my blog",
     "content": "Chào mừng bạn đến với blog cá nhân của tôi! Đây là nơi tôi chia sẻ về học lập trình, phát triển web và những trải nghiệm thực tế trong công việc.",
-    "date": "November 5, 2025"
+    "date": "November 6, 2025"
   },
   {
     "id": "1762313002289",
     "title": "Learning Node.js from Scratch",
     "content": "Node.js là một nền tảng mạnh mẽ giúp bạn xây dựng ứng dụng web nhanh và hiệu quả. Trong bài viết này, tôi chia sẻ cách cài đặt và viết chương trình đầu tiên bằng Node.js.",
-    "date": "August 4, 2024"
+    "date": "November 6, 2025"
   },
   {
     "id": "1762313007284",
@@ -40,23 +40,5 @@
     "title": "Working with APIs in JavaScript",
     "content": "API giúp frontend giao tiếp với backend. Trong bài viết này, tôi hướng dẫn cách sử dụng fetch() để gọi API và xử lý JSON trong trình duyệt.",
     "date": "July 8, 2024"
-  },
-  {
-    "id": "1762315328574",
-    "title": "Understanding JSON in Web Development",
-    "content": "JSON là định dạng phổ biến để trao đổi dữ liệu giữa server và client. Nó dễ đọc, dễ ghi, và được hỗ trợ trong hầu hết ngôn ngữ lập trình.",
-    "date": "July 4, 2024"
-  },
-  {
-    "id": "1762315329238",
-    "title": "Deploying a Node.js App Locally",
-    "content": "Bạn có thể deploy ứng dụng Node.js ngay trên máy tính của mình bằng cách sử dụng Express và cổng localhost. Tôi sẽ chỉ bạn từng bước cụ thể.",
-    "date": "July 2, 2024"
-  },
-  {
-    "id": "1762315329901",
-    "title": "Git and GitHub for Beginners",
-    "content": "Git giúp bạn quản lý mã nguồn, còn GitHub giúp chia sẻ và cộng tác. Nếu bạn mới bắt đầu, đây là hướng dẫn cơ bản giúp bạn nắm rõ quy trình commit và push.",
-    "date": "July 1, 2024"
   }
 ]

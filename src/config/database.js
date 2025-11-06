@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const USER_FILE = 'user.json';
 
 // Lấy đường dẫn tới thư mục json
 const dataPath = path.join(__dirname, 'json');
@@ -60,10 +61,66 @@ const deleteArticle = (id) => {
     return newArticles.length < articles.length;
 }
 
+const addUser = (user) => {
+    const users = readData(USER_FILE);
+
+    if (!user || typeof user !== 'object' || Array.isArray(user)) {
+        console.error('Dữ liệu người dùng không hợp lệ:', user);
+        return null;
+    }
+
+    if (users.some(u => u.id === user.id)) {
+        console.error('ID người dùng đã tồn tại.');
+        return null;
+    }
+
+    users.push(user);
+    writeData(USER_FILE, users);
+    return user;
+};
+const getAllUsers = () => {
+    const users = readData(USER_FILE);
+    return users;
+}
+const getUserByUsername = (name) => {
+    const users = readData(USER_FILE);
+    const userByName = users.find(u => u.name === name); // Dùng == để so sánh số và chuỗi
+    return userByName;
+}
+const updateUser = (id, updatedData) => {
+    const users = readData(USER_FILE);
+    const index = users.findIndex(u => u.id == id);
+
+    if (index !== -1) {
+        // Gộp dữ liệu mới vào dữ liệu cũ
+        users[index] = { ...users[index], ...updatedData };
+        writeData(USER_FILE, users);
+        return users[index];
+    }
+    return false;
+}
+const deleteUser = (id) => {
+    const users = readData(USER_FILE);
+    const initialLength = users.length;
+
+    const newUsers = users.filter(u => u.id != id);
+
+    if (newUsers.length < initialLength) {
+        writeData(USER_FILE, newUsers);
+        return true; // Xóa thành công
+    }
+    return false; // Không tìm thấy ID
+}
+
 module.exports = {
     addArticle,
     getAllArticles,
     getArticleById,
     updateArticle,
-    deleteArticle
+    deleteArticle,
+    addUser,
+    getAllUsers,
+    getUserByUsername,
+    updateUser,
+    deleteUser
 };

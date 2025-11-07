@@ -1,44 +1,40 @@
 # Personal Blog Project
 
-A simple personal blog system built with Node.js and Express.js that allows users to create, read, update, and delete blog articles.
+A modern personal blog system built with React (Vite) frontend and Node.js/Express.js backend that allows users to create, read, update, and delete blog articles.
 
 ## Features
 
+- Modern React frontend with Vite
 - Article management (CRUD operations)
 - Admin panel for content management
-- Responsive design
-- Static file serving (CSS, JavaScript)
+- Role-based access (User/Admin views)
+- Responsive design with SCSS
+- RESTful API backend
 - JSON-based data storage
 
 ## Project Structure
 
 ```
-src/
+frontend-vite/               # React frontend
+├── src/
+│   ├── components/
+│   │   ├── Admin/         # Admin panel components
+│   │   ├── Home/         # Home page components
+│   │   └── Login/        # Authentication components
+│   ├── services/         # API service layer
+│   ├── utils/           # Utility functions & axios setup
+│   ├── App.jsx         # Main React component
+│   └── main.jsx       # Application entry point
+│
+src/                    # Backend
 ├── config/
 │   ├── database.js
-│   └── json/
+│   └── json/          # JSON data storage
 │       ├── article.json
 │       └── user.json
-├── controllers/
-│   ├── adminController.js
-│   └── homeController.js
-├── public/
-│   ├── css/
-│   │   ├── article.css
-│   │   └── home.css
-│   └── javascript/
-├── routes/
-│   └── api.js
-├── views/
-│   ├── article.html
-│   ├── home.html
-│   ├── index.html
-│   └── admin/
-│       ├── admin.html
-│       ├── delete.html
-│       ├── edit.html
-│       └── new.html
-└── server.js
+├── controllers/       # API controllers
+├── routes/           # Express routes
+└── server.js         # Backend entry point
 ```
 
 ## Getting Started
@@ -48,20 +44,75 @@ src/
 - Node.js (version 14 or higher recommended)
 - npm (Node Package Manager)
 
-### Installation
+### Installation & Setup
 
 1. Clone the repository
-2. Install dependencies:
-```bash
-npm install
-```
 
-3. Start the server:
+2. Setup Backend:
 ```bash
+# From project root
+npm install
 npm start
 ```
 
-The application will be available at `http://localhost:3000`
+3. Setup Frontend:
+```bash
+# From frontend-vite directory
+npm install
+npm run dev
+```
+
+The application will be available at:
+- Frontend (Development): http://localhost:5173
+- Backend API: http://localhost:3000
+
+## Development
+
+### Running in Development Mode
+
+1. Start the backend server:
+```bash
+# From project root
+node src/server.js
+```
+
+2. Start Vite dev server (with hot reload):
+```bash
+# From frontend-vite directory
+npm run dev
+```
+
+### Building for Production
+
+1. Build the frontend:
+```bash
+# From frontend-vite directory
+npm run build
+```
+
+2. The built files will be in `frontend-vite/dist/`
+
+## Technical Stack
+
+### Frontend
+- React 18
+- React Router for navigation
+- Axios for API calls
+- SCSS for styling
+- Vite for build tooling
+
+### Backend
+- Node.js & Express
+- JSON file-based storage
+- RESTful API endpoints
+
+## API Endpoints
+
+- `GET /all-article` - Get all articles
+- `GET /article/:id` - Get single article
+- `POST /article` - Create article (admin only)
+- `PUT /article/:id` - Update article (admin only)
+- `DELETE /article/:id` - Delete article (admin only)
 
 ## TODO
 
@@ -69,13 +120,9 @@ The application will be available at `http://localhost:3000`
 - [ ] Add user registration and login functionality
 - [ ] Secure admin routes with authentication middleware
 - [ ] Add session management
-
-## Technical Notes
-
-- Data is currently stored in JSON files (`config/json/`)
-- No authentication system is implemented yet - admin panel is publicly accessible
-- Static files are served from the `public` directory
-- Views are served as static HTML files
+- [ ] Implement persistent data storage (database)
+- [ ] Add article search functionality
+- [ ] Add article categories/tags
 
 ## Security Notice
 
@@ -85,5 +132,8 @@ The application will be available at `http://localhost:3000`
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+## Link 
+
+https://roadmap.sh/projects/personal-blog
 
 

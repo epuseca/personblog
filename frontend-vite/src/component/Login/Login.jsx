@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Login.scss';
 import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const navigate = useNavigate()
-    const handleUserClick = () => {
+    useEffect(() => {
         localStorage.clear();
+    }, [navigate])
+    const handleUserClick = () => {
         navigate('/home');
     };
     return (

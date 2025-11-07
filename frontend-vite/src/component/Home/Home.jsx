@@ -3,6 +3,7 @@ import { getAllArticle } from '../../services/apiServices'
 import './Home.scss'
 import { useNavigate } from 'react-router-dom'
 import { jwtDecode } from 'jwt-decode';
+import BackComponent from '../BackComponent/BackComponent';
 
 const Home = () => {
     const [data, setData] = useState()
@@ -26,6 +27,10 @@ const Home = () => {
     }
     return (
         <div className="page-container">
+            <BackComponent
+                nav={'/'}
+                pageBack={'Main'}
+            />
             <div className="blog-container">
                 <div className='d-flex justify-content-between align-items-center'>
                     <h1>Personal Blog</h1>

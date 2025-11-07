@@ -1,50 +1,58 @@
-.article-container {
+.article{
   font-family: 'Comic Neue', cursive;
   background-color: #f8f8f8;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-}
+  
+  .back-button{
+    padding: 40px 20px;
+  }
+  .article-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    width: 80%;
+  }
 
-.article-card {
-  background-color: white;
-  border: 2px solid #333;
-  border-radius: 8px;
-  padding: 20px;
-  width: 90%;
-  max-width: 800px;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-
-  @media (max-width: 768px) {
+  .article-card {
+    background-color: white;
+    border: 3px solid #333;
+    border-radius: 8px;
+    padding: 20px;
     width: 90%;
+    max-width: 800px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 768px) {
+      width: 90%;
+    }
   }
-}
 
-.title {
-  font-weight: 700;
-  font-size: 22px;
-  margin-bottom: 6px;
-  text-decoration: none;
-  color: #333;
+  .title {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 6px;
+    text-decoration: none;
+    color: #333;
 
-  &:hover {
-    text-decoration: underline;
-    color: #000;
+    &:hover {
+      text-decoration: underline;
+      color: #000;
+    }
   }
-}
 
-.date {
-  color: #8b8b8b;
-  font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 15px;
-}
+  .date {
+    color: #8b8b8b;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
 
-.content {
-  color: #222;
-  font-size: 16px;
-  line-height: 1.5;
-  text-align: justify;
+  .content {
+    color: #222;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+  }
 }

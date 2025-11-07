@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AddNewArticle.scss";
 import { addArticle } from "../../../services/apiServices";
+import BackComponent from "../../BackComponent/BackComponent";
 
 const AddNewArticle = () => {
     const [title, setTitle] = useState("");
@@ -29,37 +30,47 @@ const AddNewArticle = () => {
     };
 
     return (
-        <div className="form-container">
-            <h1>New Article</h1>
+        <div className="add">
+            <span className='back'>
+                <BackComponent
+                    nav={'/home'}
+                    pageBack={'Home'}
+                />
+            </span>
+            <div className="form-container">
 
-            <label htmlFor="title">Article Title</label>
-            <input
-                type="text"
-                id="title"
-                placeholder="Enter article title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-            />
+                <h1>New Article</h1>
 
-            <label htmlFor="date">Publishing Date</label>
-            <input
-                type="text"
-                id="date"
-                placeholder="e.g. November 5, 2025"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-            />
+                <label htmlFor="title">Article Title</label>
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Enter article title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                />
 
-            <label htmlFor="content">Content</label>
-            <textarea
-                id="content"
-                placeholder="Write your article here..."
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-            />
-            <div style={{ color: 'red' }}>{warning}</div>
-            <button onClick={handlePublish}>Publish</button>
+                <label htmlFor="date">Publishing Date</label>
+                <input
+                    type="text"
+                    id="date"
+                    placeholder="e.g. November 5, 2025"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                />
+
+                <label htmlFor="content">Content</label>
+                <textarea
+                    id="content"
+                    placeholder="Write your article here..."
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                />
+                <div style={{ color: 'red' }}>{warning}</div>
+                <button onClick={handlePublish}>Publish</button>
+            </div>
         </div>
+
     );
 };
 

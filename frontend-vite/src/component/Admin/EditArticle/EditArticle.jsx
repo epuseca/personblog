@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './EditArticle.scss';
 import { editArticle, getArticleById } from '../../../services/apiServices';
+import BackComponent from '../../BackComponent/BackComponent';
 
 const EditArticle = () => {
     const { id } = useParams();
@@ -44,6 +45,12 @@ const EditArticle = () => {
 
     return (
         <div className="update-article-container">
+            <span className='back'>
+                <BackComponent
+                    nav={'/home'}
+                    pageBack={'Home'}
+                />
+            </span>
             <div className="form-container">
                 <h1>Update Article</h1>
 

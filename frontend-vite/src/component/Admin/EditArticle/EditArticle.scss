@@ -5,9 +5,12 @@
     font-family: 'Comic Neue', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
     min-height: 100vh;
     background-color: #fafafa;
+    .back-button{
+        padding: 40px 20px;
+    }
 }
 
 .form-container {
@@ -15,7 +18,7 @@
     max-width: 800px; /* Thêm max-width để trông đẹp hơn trên màn hình lớn */
     padding: 20px;
     background: #fff;
-    border: 2px solid #ddd;
+    border: 3px solid #333;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 
